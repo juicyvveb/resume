@@ -1,0 +1,30 @@
+@import './var.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+#app {
+  max-width: 1280px;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+.container.active {
+  background: rgb(146, 146, 199);
+  transition: all .3s ease-in-out;
+}
+

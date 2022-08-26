@@ -69,7 +69,8 @@ export default {
 @import '../assets/scss/main.scss';
 // mobile
   .container{
-    background: rgb(230, 119, 119);
+    z-index: 10;
+    background: white;
     width: 100%;
     top: 0;
     left: 0;
@@ -89,7 +90,7 @@ export default {
       position: absolute;
       top: 100%;
       left: 0;
-      background: rgb(230, 119, 119);
+      background: white;
       transition: all .5s ease;
       max-height: 50vh;
       overflow: hidden;
@@ -99,7 +100,11 @@ export default {
           position: relative;
           line-height: 1;
           text-transform: uppercase;
-          &:before{
+          
+          a{
+            color: black;
+            text-decoration: none;
+            &:before{
             content: '';
             position: absolute;
             width: 2%;
@@ -107,15 +112,32 @@ export default {
             left: 0;
             top: 47.5%;
             background: $blue;
-          }
-          a{
-            color: black;
-            text-decoration: none;
+            } 
+            &:after{
+              content: '';
+              // transition: all .3s ease-in-out;
+              transform: translateX(-100%);
+              opacity: 0;
+              visibility: hidden;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width:50%;
+              height: 10%;
+              background: $active;
+            }
           }
         }
         li.active{
           a{
-            color: white;
+            color: $gray;
+            &:after{
+              transition: all .3s ease-in-out;
+              content: '';
+              opacity: 1;
+              visibility: visible;
+              transform: translateX(0)
+            }
           }
         }
       }
@@ -175,7 +197,7 @@ export default {
       padding: 0 $paddingLap 0 $paddingLap;
     &-list {
       padding: 0 $paddingLap 0 $paddingLap;
-      max-height: 180px;
+      max-height: 40vh;
     }
     &-burger{
       &--label{
@@ -189,7 +211,62 @@ export default {
   }
 }
 }
-  
 
+
+//desktop
+@media (min-width: $desktop){
+    .container{
+    padding: 1% 0;
+    .header{
+      padding: 0 $paddingDesk 0 $paddingDesk;
+      &-logo{
+      }
+    &-list {
+      width: 40%;
+      position: relative;
+      display: flex;
+      padding: 0;
+      &.open{
+        max-height: fit-content;
+        min-height: auto; 
+      }
+      ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+         li {
+          width: 20%;
+          padding: 0;
+          position: relative;
+          line-height: 1;
+          text-transform: uppercase;
+          text-align: center;
+          a{
+            display: block;
+            padding: 10px;
+            color: black;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 35px;
+            &:before{
+              display: none;
+            }
+            &:after{
+              width:100%;
+            }
+          }
+        }
+        
+      }
+    }
+    &-burger{
+      display: none;
+      
+    }
+  }
+}
+}
 
 </style>

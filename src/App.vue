@@ -8,8 +8,7 @@
   <main>
     <Promo id="home"/>
     <About id="about"/>
-    <Promo id="experience"/>
-    <Promo id="work"/>
+    <Work id="work"/>
     <Promo id="contact"/>
   </main>
 </template>
@@ -18,6 +17,7 @@
 import Header from './components/Header.vue';
 import Promo from './components/Promo.vue';
 import About from './components/About.vue';
+import Work from './components/Work.vue';
 
 export default {
   data(){
@@ -28,7 +28,8 @@ export default {
   components:{
     Header,
     Promo,
-    About
+    About,
+    Work
   },
 }
 </script>

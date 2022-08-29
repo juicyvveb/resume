@@ -1,0 +1,26 @@
+@mixin flexCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin text ($size, $weight, $color){
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+$blue: rgb(58, 155, 220);
+$gray: rgb(59, 59, 59);
+$grayLight: rgb(219, 219, 219);
+$active:rgb(237, 238, 237);
+
+
+$paddingMob: 4%;
+$paddingLap: 5%;
+$paddingDesk: 12%;
+
+
+
+$laptop: 720px;
+$desktop: 960px;

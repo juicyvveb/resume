@@ -31,6 +31,7 @@
 @import '../assets/scss/main.scss';
 
 .container{
+  padding: 10% 0;
   .about {
     &-text {
       @include flexCenter;
@@ -96,6 +97,7 @@
 
 @media (min-width: $laptop){
   .container {
+    padding: $paddingLap;
     .about{
       display: flex;
       &-img, &-text {
@@ -166,7 +168,7 @@ export default {
     }
   },
   mounted(){
-    skillPower()
+    skillPower();
   }
 }
 </script>

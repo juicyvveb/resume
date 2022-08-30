@@ -12,7 +12,6 @@ function animation(){
             duration: 1.7, 
             delay: i != 0 ? i / 10 * 2 : 0,
             ease: "back.out"
-
         }))
         window.removeEventListener('scroll', animation)
     }

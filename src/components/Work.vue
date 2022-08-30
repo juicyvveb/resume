@@ -15,8 +15,8 @@
           <Item :info="item"/>
           </li>
       </TransitionGroup>
-      <button class="work-button work-button__show" v-if="show < examples.length" @click="show++">ещё</button>
-      <button class="work-button work-button__hidden" v-if="show >= 2" @click="show--" >скрыть</button>
+      <button class="work-button work-button__show" v-if="show < examples.length" @click="show++ ">ещё</button>
+      <button class="work-button work-button__hidden" v-if="show >= 2 && device == 'mobile'" @click="show--" >скрыть</button>
     </div>
     
   </div>
@@ -51,14 +51,15 @@ export default {
           text: 'Some txt',
           link: 'https://juicyvveb.github.io/germanNumbers/'
         },
-      ]
+      ],
+      device: ''
     }
   },
   components: {
     Item
   },
   methods: {
-    scale(){
+    elToShow(){
       window.onresize = (e) => {
         if(document.body.clientWidth > 720){
           this.show = this.examples.length
@@ -67,12 +68,23 @@ export default {
           this.show = 2
         }
       }
+    },
+    sizeDetect(){
+      size() == 'mobile' ? 0 : this.show = this.examples.length;
+      this.device = size()
+      window.onresize = () => {
+        size() == 'mobile' ? 0 : this.show = this.examples.length;
+        this.device = size()
+      }
     }
   },
   created(){
-    this.scale()
+    this.elToShow()
+    this.sizeDetect()
   }
 }
+import size from '../assets/js/size';
+
 </script>
 
 <style lang="scss" scoped>
